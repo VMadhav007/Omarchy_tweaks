@@ -1,0 +1,194 @@
+{
+   "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+
+  "height": 30,
+  "margin-top": 5,//5
+  "margin-left": 12,//12
+  "margin-right": 12,//12
+  "spacing": 6,
+
+
+  "modules-left": [
+    "custom/omarchy",
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "clock",
+    "custom/update",
+    "custom/voxtype",
+    "custom/screenrecording-indicator"
+  ],
+
+  "modules-right": [
+    "group/tray-expander",
+    "custom/bluetooth-battery",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "cpu",
+    "battery",
+    "custom/power"
+  ],
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": "󱓻",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
+
+  "custom/omarchy": {
+    "format": "<span font='omarchy'>\ue900</span>",
+    "on-click": "omarchy-menu",
+    "on-click-right": "xdg-terminal-exec",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+  },
+
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 21600
+  },
+
+  "custom/power": {
+    "format": " ⏻ ",
+    "tooltip": true,
+    "tooltip-format": "Power Menu",
+    "on-click": "omarchy-menu system"
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": "󰍛",
+    "on-click": "omarchy-launch-or-focus-tui btop",
+    "on-click-right": "alacritty"
+  },
+
+  "clock": {
+    "format": "{:L%A %I:%M %p}",
+    "format-alt": "{:L%d %B W%V %Y}",
+    "tooltip": false
+  },
+
+  "network": {
+  "format": "{icon}",
+  "format-wifi": "{icon}",
+  "format-ethernet": "󰀂",
+  "format-disconnected": "󰤮",
+  "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+  "interval": 3,
+  "on-click": "omarchy-launch-wifi"
+  },
+  
+  "battery": {
+    "interval": 5,
+    "format": "{capacity}% {icon}",
+    "format-discharging": "{capacity}% {icon}",
+    "format-charging": "{capacity}% {icon}",
+    "format-plugged": "{capacity}% ",
+    "format-full": "100% 󰂅",
+    "format-icons": {
+      "charging": ["󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"],
+      "default": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
+    },
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "Bluetooth",
+    "on-click": "omarchy-launch-bluetooth"
+  },
+
+  "custom/bluetooth-battery": {
+    "exec": "~/.config/waybar/scripts/bt-battery.sh",
+    "interval": 30,
+    "tooltip": false
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "default": ["","",""]
+    },
+    "on-click": "omarchy-launch-audio",
+    "on-click-right": "pamixer -t",
+    "scroll-step": 5
+  },
+
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "custom/expand-icon",
+      "tray"
+    ]
+  },
+
+  "custom/expand-icon": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "custom/screenrecording-indicator": {
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+    "signal": 8,
+    "return-type": "json",
+    "on-click": "omarchy-cmd-screenrecord"
+  },
+
+  "custom/voxtype": {
+    "exec": "omarchy-voxtype-status",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "idle": "",
+      "recording": "󰍬",
+      "transcribing": "󰔟"
+    },
+    "tooltip": true,
+    "on-click": "omarchy-voxtype-model",
+    "on-click-right": "omarchy-voxtype-config"
+  },
+
+  "tray": {
+    "icon-size": 12,
+    "spacing": 17
+  }
+}
