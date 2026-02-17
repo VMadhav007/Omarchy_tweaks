@@ -7,6 +7,7 @@
 ```bash
 cp animations.conf ~/.config/hypr/
 ```
+```
 
 2. Source this file in your main `hyprland.conf`:
 ```bash
