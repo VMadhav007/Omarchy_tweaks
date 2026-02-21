@@ -1,0 +1,258 @@
+// arch like
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+
+  "height": 30,
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+  "spacing": 6,
+
+  "modules-left": [
+    "custom/omarchy",
+    "hyprland/workspaces",
+    "cava"
+  ],
+
+  "modules-center": [
+    "clock",
+    "custom/update",
+    "custom/voxtype",
+    "custom/screenrecording-indicator"
+  ],
+
+  "modules-right": [
+    "group/tray-expander",
+    "temperature",
+    "custom/bluetooth-battery",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "cpu",
+    "battery",
+    "custom/power"
+  ],
+  //  "hyprland/workspaces": {
+  //   "disable-scroll": false,
+  //   "all-outputs": true,
+  //   "warp-on-scroll": false,
+  //   "format": "{icon}",
+  //   "format-icons": {
+  //     // "1": "",
+  //     // "2": "",
+  //     // "3": "",
+  //     // "4": "󰉋",
+  //     // "5": "󰈔",
+  //     // "6": "󰈔",
+  //     // "active": "󰫢"
+  //     "active": ""
+  //   },
+  //   "persistent-workspaces": {
+  //     "1": [],
+  //     "2": [],
+  //     "3": [],
+  //     "4": [],
+  //     "5": []
+  //   }
+  // },
+  // // --  INFO: Active app
+  // "hyprland/window": {
+  //   "format": "{title}",
+  //   "icon": true,
+  //   "icon-size": 17,
+  //   "separate-outputs": true,
+  //   "rewrite": {
+  //     "nv": "  - neovim",
+  //     "(^\\S+ \\S+ \\S+ \\S+ \\S+ \\S+).*[-|—] (.*)": "$1... - $2",
+  //     "(^\\S+ \\S+ \\S+ \\S+ \\S+ \\S+).*": "$1...",
+  //   },
+  // },
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      // "active": "",
+      "active": "",
+      "1": "1·",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
+
+  "custom/omarchy": {
+    "format": "<span font='omarchy'></span>",
+    "on-click": "omarchy-menu",
+    "on-click-right": "xdg-terminal-exec",
+    "tooltip-format": "Omarchy Menu\nSuper + Alt + Space"
+  },
+
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 21600
+  },
+
+  "clock": {
+    "format": "{:L%A %I:%M %p}",
+    "format-alt": "{:L%d %B W%V %Y}",
+    "tooltip-format": "<span>{calendar}</span>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-click-right": "mode",
+      "format": {
+        "month": "<span color='#ffead3'><b>{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b>{}</b></span>"
+      }
+    },
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
+  },
+  
+  "cava": {
+    "framerate": 60,
+    "autosens": 1,
+    "bars": 12,
+    "method": "pipewire",
+    "source": "auto",
+    "bar_delimiter": 0,
+    "input_delay": 2,
+    "sleep_timer": 2,
+    "hide_on_silence": true,
+    "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ]
+  },
+
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "custom/expand-icon",
+      "tray"
+    ]
+  },
+
+  "custom/expand-icon": {
+    "format": " ",
+    "tooltip": false
+  },
+
+  "tray": {
+    "icon-size": 12,
+    "spacing": 16
+  },
+
+  "bluetooth": {
+    "format": " ",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱  {device_alias}",
+    "tooltip-format": "Bluetooth",
+    "on-click": "omarchy-launch-bluetooth"
+  },
+
+  "custom/bluetooth-battery": {
+    "exec": "~/.config/waybar/scripts/bt-battery.sh",
+    "interval": 30,
+    "tooltip": false
+  },
+
+  "network": {
+    "format": "{icon} ",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+    "interval": 3,
+    "on-click": "omarchy-launch-wifi"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}   {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "default": ["","",""]
+    },
+    "on-click": "omarchy-launch-audio",
+    "on-click-right": "pamixer -t",
+    "scroll-step": 5
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": "  {usage}%",
+    "on-click": "omarchy-launch-or-focus-tui btop",
+    "on-click-right": "alacritty"
+  },
+  "temperature": {
+    "format": " {temperatureC}°C",
+    "tooltip": false
+  },
+
+  "battery": {
+    "interval": 5,
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% {icon}",
+    "format-plugged": "{capacity}% ",
+    "format-full": "100% 󰂅",
+    "format-icons": {
+      "charging": ["󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"],
+      "default": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
+    },
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+
+  "custom/power": {
+    "format": " ⏻ ",
+    "tooltip-format": "Power Menu",
+    "on-click": "omarchy-menu system"
+  },
+
+  "custom/screenrecording-indicator": {
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+    "signal": 8,
+    "return-type": "json",
+    "on-click": "omarchy-cmd-screenrecord"
+  },
+
+  "custom/voxtype": {
+    "exec": "omarchy-voxtype-status",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "idle": "",
+      "recording": "󰍬",
+      "transcribing": "󰔟"
+    },
+    "tooltip": true,
+    "on-click": "omarchy-voxtype-model",
+    "on-click-right": "omarchy-voxtype-config"
+  }
+}

@@ -1,0 +1,159 @@
+@import "./colors.css";
+
+* {
+  font-family: "SF Pro", "Liga SFMonoNerdFont";
+  font-weight: 600;
+  background: transparent;
+  transition: all 100ms ease;
+}
+
+window#waybar {
+  /* background: alpha(@BG, 0.55); */
+  border-radius: 16px;
+  margin: 4px 10px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: alpha(@DARK1, 0.85);
+  padding: 4px 8px;
+  margin: 4px;
+  border-radius: 16px;
+}
+
+#workspaces,
+#clock,
+#tray,
+#network,
+#pulseaudio,
+#bluetooth,
+#battery,
+#cpu,
+#temperature,
+#cava,
+#custom-omarchy,
+#custom-update,
+#custom-power,
+#custom-voxtype,
+#custom-screenrecording-indicator,
+#custom-bluetooth-battery {
+  padding: 4px 10px;
+  margin: 0 3px;
+  /* background: alpha(@DARK2, 0.7); */
+  border-radius: 999px;
+  color: @FG;
+}
+
+#workspaces button {
+  padding: 2px 8px;
+  margin: 0 2px;
+  color: @GRAY0;
+  background: transparent;
+}
+
+#workspaces button.active {
+  background: @YELLOW;
+  color: @DARK;
+}
+
+/* #workspaces button:hover {
+  background: alpha(@YELLOW, 0.25); 
+} */
+
+/* #workspaces {
+  background-color: @BG;
+  border: 1px solid @BOR;
+  border-radius: 15px;
+  margin: 10px 0 1px 0;
+  padding: 0px 2px;
+  font-size: 12px;
+}
+
+#workspaces button {
+  color: @FG;
+  background: @DARK2;
+  border-radius: 15px;
+  padding: 1px 5px;
+  margin: 10px 7px;
+  min-height: 0px;
+  transition: min-width 200ms cubic-bezier(0.42, 0.97, 0.52, 1.49); 
+  border: 1px solid @DARK3;
+}
+
+#workspaces button.empty {
+  color: @GRAY0;
+}
+
+#workspaces button.active {
+  color: @DARK;
+  background: @GREEN;
+  min-width: 70px;
+  box-shadow: 0px 0px 0px 4px @GREEN1;
+  border: none;
+}  */
+
+
+
+#clock {
+  /* background: alpha(@BLUE, 0.25); */
+  color: @WHITE;
+  font-weight: 700;
+}
+
+#custom-expand-icon {
+  color: @GRAY0;
+  padding-right: 6px;
+}
+
+#network {
+  color: @GREEN;
+}
+
+#pulseaudio {
+  color: @ORANGE;
+}
+
+#pulseaudio.muted {
+  color: @RED;
+}
+
+#bluetooth {
+  color: @BLUE;
+}
+
+#bluetooth.off,
+#bluetooth.disabled {
+  color: @GRAY0;
+}
+
+#cpu {
+  color: @ORANGE;
+}
+
+#temperature {
+  color: @FG;
+}
+
+#battery {
+  color: @GREEN;
+}
+
+#battery.warning {
+  color: @YELLOW;
+}
+
+#battery.critical {
+  color: @RED;
+}
+
+#custom-power {
+  /* background: alpha(@RED, 0.25); */
+  color: @RED0;
+  font-weight: 700;
+}
+
+#custom-screenrecording-indicator {
+  background: alpha(@RED, 0.35);
+  color: @WHITE;
+}
