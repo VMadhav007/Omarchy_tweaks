@@ -35,7 +35,7 @@
       "default": "",
       // "active": "",
       "active": "",
-      "1": "1·",
+      "1": "1",
       "2": "2",
       "3": "3",
       "4": "4",
@@ -80,29 +80,32 @@
     "restart-interval": 10
   },
    "hyprland/window": {
-    "format": "{title} - {class}",
-    "max-length": 85,
-    "rewrite": {
-      " - ": "", // if no window is focused, a single dash is displayed, this removes it
-      "(.*?) - Chromium - chromium": "   $1 ",
-      "(.*chrome)...(.*)": "   $1 ",
-      "(.*) - Obsidian - .* - obsidian": "   $1 ",
-      "(.*nvim)...(.*)": "   $2 ",
-      "(.*code) - (.*)": " 󰨞  $1 ",
-      "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
-      "^.*cmatrix( .*|$)": " 󰘨 MATRIX $1 ",
-      "(.*) - Spotify": " $1 ",
-      "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
-      "(.*) - Alacritty": "   $1 ",
-      "(.*) - BeeperTexts": " 󰻞  $1 ",
-      "(.*Discord)...(.*).. (.*)": "   $2 ",
-      "(.*) - org.gnome.Nautilus": " 󰣆  $1 ",
-      "(.*) - fish": "   [$1] ",
-      "(.*Steam)...(.*)": "   $1",
-      "(.*imv)...(.*).. (.*)": "   $2",
-      "(.*) - com.obsproject.Studio": "  $1 "
-    }
-  },
+  "format": "{title} - {class}",
+  "max-length": 85,
+  "rewrite": {
+    "^-$": "",
+
+    " - ": "",
+
+    "(.*?) - Chromium - chromium": "   $1 ",
+    "(.*chrome)...(.*)": "   $1 ",
+    "(.*) - Obsidian - .* - obsidian": "   $1 ",
+    "(.*nvim)...(.*)": "   $2 ",
+    "(.*code) - (.*)": " 󰨞  $1 ",
+    "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
+    "^.*cmatrix( .*|$)": " 󰘨 MATRIX $1 ",
+    "(.*) - Spotify": " $1 ",
+    "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
+    "(.*) - Alacritty": "   $1 ",
+    "(.*) - BeeperTexts": " 󰻞  $1 ",
+    "(.*Discord)...(.*).. (.*)": "   $2 ",
+    "(.*) - org.gnome.Nautilus": " 󰣆  $1 ",
+    "(.*) - fish": "   [$1] ",
+    "(.*Steam)...(.*)": "   $1",
+    "(.*imv)...(.*).. (.*)": "   $2",
+    "(.*) - com.obsproject.Studio": "  $1 "
+  }
+},
   
  "cpu": {
     "interval": 2,
@@ -114,39 +117,30 @@
     "format": "{percentage}%  ",
     "on-click": "omarchy-launch-or-focus-tui btop"
   },
-  // "clock": {
-  //   "format": " {:%I:%M %a %d}",
-  //   "format-alt": " {:%d/%m/%Y  %I:%M:%S}",
-  //   "tooltip-format": "<span>{calendar}</span>",
-  //   "calendar": {
-  //     "mode": "month",
-  //     "weeks-pos": "right",
-  //     "mode-mon-col": 3,
-  //     "on-click-right": "mode",
-  //     "format": {
-  //       "months": "<span color='#e5c890'><b>{}</b></span>",
-  //       "weekdays": "<span color='#ca9ee6'><b>{}</b></span>",
-  //       "today": "<span color='#f4b8e4'><b>{}</b></span>"
-  //     }
-  //   },
-  //   "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
-  // },
   "clock": {
-    "format": "{:L%A %I:%M %p}",
-    "format-alt": "{:L%d %B W%V %Y}",
-    "tooltip-format": "<span>{calendar}</span>",
-    "calendar": {
-      "mode": "month",
-      "mode-mon-col": 3,
-      "on-click-right": "mode",
-      "format": {
-        "month": "<span color='#ffead3'><b>{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b>{}</b></span>"
-      }
-    },
-    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
+  "interval": 1,
+
+  "format": "{:L%A %I:%M %p}",
+  "format-alt": "{:L%d %B W%V %Y}",
+
+  "tooltip-format": "<tt><small>{calendar}</small></tt>",
+
+  "calendar": {
+    "mode": "month",
+    "mode-mon-col": 3,
+    "weeks-pos": "right",
+    "on-click-right": "mode",
+
+    "format": {
+      "months": "<span color='#ffead3'><b>{}</b></span>",
+      "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+      "today": "<span color='#ff6699'><b>{}</b></span>"
+    }
   },
+
+  "on-click": "mode",
+  "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
+},
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -164,45 +158,32 @@
     "on-click": "omarchy-launch-wifi"
   },
   "battery": {
-    "format": "{capacity}% {icon}",
-    "format-discharging": "{capacity}% {icon}",
-    "format-charging": "{icon}",
-    "format-plugged": "{power}",
-    "format-icons": {
-      "charging": [
-        "󰢜",
-        "󰂆",
-        "󰂇",
-        "󰂈",
-        "󰢝",
-        "󰂉",
-        "󰢞",
-        "󰂊",
-        "󰂋",
-        "󰂅"
-      ],
-      "default": [
-        "󰁺",
-        "󰁻",
-        "󰁼",
-        "󰁽",
-        "󰁾",
-        "󰁿",
-        "󰂀",
-        "󰂁",
-        "󰂂",
-        "󰁹"
-      ]
-    },
-    "format-full": "󰂅",
-    "tooltip-format-discharging": "{timeTo}",
-    "tooltip-format-charging": "{timeTo}",
-    "interval": 5,
-    "states": {
-      "warning": 20,
-      "critical": 10
-    }
+  "format": "{capacity}% {icon}",
+  "format-discharging": "{capacity}% {icon}",
+  "format-charging": "{capacity}% {icon}",
+  "format-plugged": " {capacity}%",
+
+  "format-icons": {
+    "charging": [
+      "󰢜","󰂆","󰂇","󰂈","󰢝",
+      "󰂉","󰢞","󰂊","󰂋","󰂅"
+    ],
+    "default": [
+      "󰁺","󰁻","󰁼","󰁽","󰁾",
+      "󰁿","󰂀","󰂁","󰂂","󰁹"
+    ]
   },
+
+  "format-full": "󰂅 100%",
+  "tooltip-format": "{capacity}%\n{timeTo}",
+
+  "interval": 5,
+
+  "states": {
+    "warning": 20,
+    "critical": 10
+  }
+},
   "bluetooth": {
     "format": "",
     "format-disabled": "󰂲",

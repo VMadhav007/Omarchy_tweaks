@@ -2,6 +2,8 @@
 @define-color bg #181a1f;
 @define-color fg #eceff2;
 
+
+
 * {
   border: none;
   box-shadow: none;
@@ -12,6 +14,7 @@
 window#waybar {
   background: transparent;
 }
+
 
 /* OMARCHY */
 
@@ -36,7 +39,8 @@ window#waybar {
 #workspaces button {
   color: @fg;
   padding: 2px 8px;
-  border-radius: 4px;
+  margin: 1px;
+  border-radius: 6px 12px 6px 12px;
 }
 
 #workspaces button.active {
@@ -47,7 +51,7 @@ window#waybar {
 /* CLOCK */
 
 #clock {
-  background-image: url("image.png");
+  background-image: url("assets/clock-bg.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -87,9 +91,6 @@ window#waybar {
 
 #tray,
 #backlight,
-#bluetooth,
-#pulseaudio,
-#network,
 #memory,
 #battery,
 #cpu {
@@ -99,6 +100,39 @@ window#waybar {
   margin: 4px;
   border-radius: 6px 10px 6px 10px;
 }
+
+/* CONNECTIVITY PILL BASE */
+/* Base style for the group */
+/* Base style */
+#bluetooth,
+#pulseaudio,
+#network {
+  background: @bg;
+  color: @fg;
+  padding: 4px 12px;
+  margin: 4px 0;   /* remove side spacing */
+}
+
+/* Left edge */
+#bluetooth {
+  border-radius: 6px 0 0 10px;
+  margin-left: 4px;
+}
+
+/* Middle */
+#pulseaudio {
+  border-radius: 0;
+}
+
+/* Right edge */
+#network {
+  border-radius: 0 10px 6px 0;
+  margin-right: 4px;
+}
+
+
+
+
 
 /* CPU + MEMORY */
 
@@ -117,8 +151,7 @@ window#waybar {
   border-radius: 6px 10px 6px 10px;
 }
 
-/*
-dynamic colours by using the current colour scheme of theme
+/* dynamic colours 
 
 @import "../omarchy/current/theme/waybar.css";
 
@@ -241,7 +274,3 @@ window#waybar {
   margin: 4px;
   border-radius: 6px 10px 6px 10px;
 } */
-
-
-
-
