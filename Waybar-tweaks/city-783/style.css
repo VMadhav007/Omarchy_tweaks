@@ -1,14 +1,14 @@
+/* @import url("colors/colors.css"); */
+
 @define-color accent #ff2222;
 @define-color bg #181a1f;
 @define-color fg #eceff2;
-
-
 
 * {
   border: none;
   box-shadow: none;
   min-height: 0;
-  padding: 3px 3px;
+  padding: 2px 3px;
 }
 
 window#waybar {
@@ -16,23 +16,22 @@ window#waybar {
 }
 
 
-/* OMARCHY */
-
+/* launcher */
 #custom-omarchy {
   background: @accent;
   color: @bg;
-  font-size: 20px;
-  padding: 4px 14px;
+  font-size: 19px;
+  padding: 4px 13px;
   border-radius: 6px 14px 6px 14px;
-  margin: 4px;
+  margin: 3px;
 }
 
-/* WORKSPACES */
 
+/* workspaces */
 #workspaces {
   background: @bg;
   padding: 2px 6px;
-  margin: 4px;
+  margin: 3px;
   border-radius: 6px 12px 6px 12px;
 }
 
@@ -48,229 +47,106 @@ window#waybar {
   color: @bg;
 }
 
-/* CLOCK */
 
+/* clock */
 #clock {
   background-image: url("assets/clock-bg.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-
-  color: #181a1f;
+  color: @bg;
   font-size: 14px;
   font-weight: 700;
-
-  padding: 1px 60px;   /* top/bottom smaller */
+  padding: 1px 58px;
   margin: 2px;
 }
 
-/* MPRIS */
 
+/* media */
 #mpris {
   background: @bg;
   color: @fg;
-  padding: 4px 14px;
-  margin: 4px;
+  padding: 4px 13px;
+  margin: 3px;
   border-radius: 6px 12px 6px 12px;
 }
 
-/* WINDOW */
 
+/* window title */
 #window {
   background: @bg;
   color: @fg;
-  padding: 4px 14px;
-  margin: 4px;
+  padding: 4px 13px;
+  margin: 3px;
   border-radius: 6px 12px 6px 12px;
-
   font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 13px;
 }
 
-/* SYSTEM MODULES */
 
+/* system */
 #tray,
 #backlight,
-#memory,
-#battery,
-#cpu {
+#battery {
   background: @bg;
   color: @fg;
-  padding: 4px 12px;
-  margin: 4px;
+  padding: 4px 11px;
+  margin: 3px;
   border-radius: 6px 10px 6px 10px;
 }
 
-/* CONNECTIVITY PILL BASE */
-/* Base style for the group */
-/* Base style */
+
+/* performance */
+#cpu,
+#memory {
+  background: @accent;
+  color: @bg;
+  padding: 4px 11px;
+  margin: 3px;
+  border-radius: 6px 10px 6px 10px;
+}
+
+
+/* grouped modules */
 #bluetooth,
 #pulseaudio,
 #network {
   background: @bg;
   color: @fg;
-  padding: 4px 12px;
-  margin: 4px 0;   /* remove side spacing */
+  padding: 4px 11px;
+  margin: 3px 0;
 }
 
-/* Left edge */
 #bluetooth {
   border-radius: 6px 0 0 10px;
-  margin-left: 4px;
+  margin-left: 3px;
 }
 
-/* Middle */
 #pulseaudio {
   border-radius: 0;
 }
 
-/* Right edge */
 #network {
   border-radius: 0 10px 6px 0;
-  margin-right: 4px;
+  margin-right: 3px;
 }
 
 
-
-
-
-/* CPU + MEMORY */
-
-#cpu,
-#memory {
-  background: @accent;
-  color: @bg;
-}
-
-/* SCREEN RECORD */
-
+/* screen recording */
 #custom-screenrecording-indicator {
   background: @bg;
-  padding: 4px 10px;
-  margin: 4px;
+  padding: 4px 9px;
+  margin: 3px;
   border-radius: 6px 10px 6px 10px;
 }
 
-/* dynamic colours 
 
-@import "../omarchy/current/theme/waybar.css";
-
-
-@define-color accent #ff2222;
-@define-color bg @background;
-@define-color fg @foreground;
-
-* {
-  border: none;
-  box-shadow: none;
-  min-height: 0;
-  padding: 3px;
-}
-
-window#waybar {
+/* remove empty window module */
+window#waybar.empty #window {
   background: transparent;
+  color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
 }
-
-
-
-#custom-omarchy {
-  background: @accent;
-  color: @bg;
-  font-size: 20px;
-  padding: 4px 14px;
-  border-radius: 6px 14px 6px 14px;
-  margin: 4px;
-}
-
-
-
-#workspaces {
-  background: @bg;
-  padding: 2px 6px;
-  margin: 4px;
-  border-radius: 6px 12px 6px 12px;
-}
-
-#workspaces button {
-  color: @fg;
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-
-#workspaces button.active {
-  background: @accent;
-  color: @bg;
-}
-
-
-
-#clock {
-  background-image: url("assets/clock-bg.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-
-  color: @bg;
-  font-size: 14px;
-  font-weight: 700;
-
-  padding: 1px 60px;
-  margin: 2px;
-}
-
-
-
-#mpris {
-  background: @bg;
-  color: @fg;
-  padding: 4px 14px;
-  margin: 4px;
-  border-radius: 6px 12px 6px 12px;
-}
-
-
-
-#window {
-  background: @bg;
-  color: @fg;
-  padding: 4px 14px;
-  margin: 4px;
-  border-radius: 6px 12px 6px 12px;
-
-  font-family: "JetBrains Mono", "Fira Code", monospace;
-  font-size: 13px;
-}
-
-
-
-#tray,
-#backlight,
-#bluetooth,
-#pulseaudio,
-#network,
-#memory,
-#battery,
-#cpu {
-  background: @bg;
-  color: @fg;
-  padding: 4px 12px;
-  margin: 4px;
-  border-radius: 6px 10px 6px 10px;
-}
-
-
-
-#cpu,
-#memory {
-  background: @accent;
-  color: @bg;
-}
-
-
-
-#custom-screenrecording-indicator {
-  background: @bg;
-  padding: 4px 10px;
-  margin: 4px;
-  border-radius: 6px 10px 6px 10px;
-} */

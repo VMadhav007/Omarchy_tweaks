@@ -27,6 +27,9 @@
 window#waybar {
   background: transparent;
   transition: background-color 0.5s;
+  margin-top: 6px;   /* pushes the bar down */
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 /* Only hide WINDOW title when empty — NOT center */

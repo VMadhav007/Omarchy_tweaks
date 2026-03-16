@@ -34,6 +34,7 @@
     "format-icons": {
       "default": "",
       // "active": "",
+      // "active": "󰮯 ",
       "active": "",
       "1": "1",
       "2": "2",
@@ -79,31 +80,29 @@
     "exec": "waybar-module-pacman-updates --no-zero-output",
     "restart-interval": 10
   },
-   "hyprland/window": {
-  "format": "{title} - {class}",
-  "max-length": 85,
-  "rewrite": {
-    "^-$": "",
-
-    " - ": "",
-
-    "(.*?) - Chromium - chromium": "   $1 ",
-    "(.*chrome)...(.*)": "   $1 ",
-    "(.*) - Obsidian - .* - obsidian": "   $1 ",
-    "(.*nvim)...(.*)": "   $2 ",
-    "(.*code) - (.*)": " 󰨞  $1 ",
-    "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
-    "^.*cmatrix( .*|$)": " 󰘨 MATRIX $1 ",
-    "(.*) - Spotify": " $1 ",
-    "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
-    "(.*) - Alacritty": "   $1 ",
-    "(.*) - BeeperTexts": " 󰻞  $1 ",
-    "(.*Discord)...(.*).. (.*)": "   $2 ",
-    "(.*) - org.gnome.Nautilus": " 󰣆  $1 ",
-    "(.*) - fish": "   [$1] ",
-    "(.*Steam)...(.*)": "   $1",
-    "(.*imv)...(.*).. (.*)": "   $2",
-    "(.*) - com.obsproject.Studio": "  $1 "
+  "hyprland/window": {
+    "format": "{title}",
+    // "dynamic-len": 24,
+    "max-length": 24,
+    "rewrite": {
+      " - ": "",
+      "(.*) - Chromium": "  $1",
+      "(.*) - chrome": "  $1",
+      "(.*) - Obsidian": "  $1",
+      "(.*)nvim(.*)": "  $1",
+      "(.*) - code": "󰨞  $1",
+      "^btop(.*)": "󰧨  BTOP",
+      "^cmatrix(.*)": "󰘨  MATRIX",
+      "(.*) - Spotify": "  $1",
+      "(.*) - com.mitchellh.ghostty": "󰊠  $1",
+      "(.*) - Alacritty": "  $1",
+      "(.*) - fish": "  [$1]",
+      "(.*) - BeeperTexts": "󰻞  $1",
+      "(.*) - Discord": "  $1",
+      "(.*) - org.gnome.Nautilus": "󰣆  $1",
+      "(.*) - Steam": "  $1",
+      "(.*)imv(.*)": "  $1",
+      "(.*) - com.obsproject.Studio": "  $1"
   }
 },
   
@@ -185,13 +184,13 @@
   }
 },
   "bluetooth": {
-    "format": "",
-    "format-disabled": "󰂲",
-    "format-off": "󰂲",
-    "format-connected": "",
-    "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "omarchy-launch-bluetooth"
-  },
+  "format": "",
+  "format-disabled": "󰂲",
+  "format-off": "󰂲",
+  "format-connected": "󰋋",
+  "tooltip-format": "Devices connected: {num_connections}",
+  "on-click": "omarchy-launch-bluetooth"
+},
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon}",
@@ -229,7 +228,8 @@
   "mpris": {
     "format": "{player_icon} {dynamic}",
     "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
-    "max-length": 55,
+    "dynamic-len": 20,
+    "max-length": 24,
     "interval": 1,
     "player-icons": {
       "default": "⏸",
@@ -238,12 +238,11 @@
     "status-icons": {
       "paused": "▶"
     }
-    // "ignored-players": ["firefox"]
   },
   "custom/screenrecording-indicator": {
     "on-click": "omarchy-cmd-screenrecord",
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
     "signal": 8,
     "return-type": "json"
-  },
+  }
 }

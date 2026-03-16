@@ -1,0 +1,303 @@
+/*----------------------------------------------------------*/
+/*--  HACK: Colors --*/
+/*----------------------------------------------------------*/
+
+/*  INFO: Normal colors */
+@define-color DARK #1A1218;
+@define-color DARK1 #241A20;
+@define-color DARK2 #2E2028;
+@define-color DARK3 #382830;
+
+@define-color WHITE #FFF5F8;
+
+@define-color GREEN0 #FFD6E0;
+@define-color GREEN #FFB0C0;
+@define-color GREEN1 #99606F;
+@define-color GREEN2 #331F25;
+
+@define-color RED0 #FFB8C8;
+@define-color RED #FF8FAD;
+@define-color RED1 #994055;
+@define-color RED2 #33151C;
+
+@define-color ORANGE0 #FFCCD5;
+@define-color ORANGE #FFB0C0;
+@define-color ORANGE1 #996070;
+@define-color ORANGE2 #332028;
+
+@define-color YELLOW0 #FFE8EE;
+@define-color YELLOW #FFD6E0;
+@define-color YELLOW1 #997080;
+@define-color YELLOW2 #332530;
+
+@define-color PURPLE0 #E8C8E0;
+@define-color PURPLE #D4A8CC;
+@define-color PURPLE1 #7D5878;
+@define-color PURPLE2 #2A1C28;
+
+@define-color BLUE0 #E8C8D8;
+@define-color BLUE #D4A8C4;
+@define-color BLUE1 #7D5870;
+@define-color BLUE2 #281C24;
+
+@define-color GRAY0 #C8A8B8;
+@define-color GRAY #6B4858;
+@define-color GRAY1 #3A2830;
+@define-color GRAY2 #180E14;
+
+@define-color BG @DARK;
+@define-color FG @WHITE;
+@define-color BOR @ORANGE0;
+
+* {
+  font-family: "MapleMono Nerd Font", "Maple Mono";
+  font-style: italic;
+  font-weight: 600;
+  background: transparent;
+  transition: all 200ms ease-out;
+}
+
+/* Modules */
+
+.modules-left,
+.modules-right {
+  background-color: @BG;
+  border: 2.5px solid @BOR;   /* was 1px */
+  margin: 10px 15px 1px 15px;
+  border-radius: 16pX;
+  padding: 7px 8px;         /* slightly larger padding */
+  font-size: 11px;
+}
+/* EXTRA spacing only for LEFT modules */
+
+.modules-left > * {
+  margin-right: 10px;
+}
+
+.modules-left {
+  padding: 6px 0 6px 6px;
+}
+
+/* Workspaces */
+
+#workspaces {
+  background-color: @BG;
+  border: 3px solid @BOR;
+  border-radius: 99999px;
+  margin: 11px 10px 3px 0px;
+  padding: 0px 4px;
+  padding-right: 5px;
+  font-size: 12px;
+}
+
+#workspaces button {
+  color: @FG;
+  background: @DARK2;
+  border-radius: 10px;
+  padding: 1px 5px;
+  margin: 10px 7px;
+  min-height: 5px;
+  border: 1px solid @DARK3;
+}
+
+#workspaces button.empty {
+  color: @GRAY0;
+}
+
+#workspaces button.active {
+  color: @DARK;
+  background: @GREEN;
+  min-width: 70px;
+  box-shadow: 0px 0px 0px 4px @GREEN1;
+  border: none;
+}
+
+/* Battery */
+
+#battery {
+  padding: 1px 12px;
+  background: @ORANGE;
+  border-radius: 10px;
+  color: @ORANGE2;
+  margin: 0px 5px;
+  font-weight: 700;
+  border: 1px solid @ORANGE0;
+}
+
+#battery.charging {
+  background: @GREEN;
+}
+
+/* Network */
+
+#network {
+  padding: 1px 12px;
+  padding-right: 16px;
+  background: @PURPLE;
+  border-radius: 10px;
+  color: @PURPLE2;
+  font-weight: 700;
+  border: 2px solid @PURPLE0;
+}
+#mpris {
+  padding: 1px 12px;
+  background: @RED;
+  border-radius: 10px;
+  color: @DARK;
+  margin: 0px 5px 0px 6px;
+  font-weight: 700;
+  border: 1px solid @RED0;
+}
+
+/* Audio */
+
+#pulseaudio {
+  padding: 1px 12px;
+  padding-right: 16px;
+  background: @BLUE;
+  border-radius: 10px;
+  color: @BLUE2;
+  margin: 0px 5px 0px 0px;
+  font-weight: 700;
+  border: 1px solid @BLUE0;
+}
+
+#pulseaudio.muted {
+  background: @DARK2;
+  border: 1px solid @DARK3;
+}
+
+/* Bluetooth */
+
+#bluetooth {
+  padding: 1px 12px;
+  background: @GREEN;
+  border-radius: 10px;
+  color: @GREEN2;
+  margin: 0px 5px 0px 0px;
+  font-weight: 700;
+  border: 1px solid @GREEN0;
+}
+
+/* Backlight */
+
+#backlight {
+  padding: 1px 12px;
+  background: @YELLOW;
+  border-radius: 10px;
+  color: @YELLOW2;
+  margin: 0px 5px 0px 0px;
+  font-weight: 700;
+  border: 1px solid @YELLOW0;
+}
+
+/* Memory */
+
+#memory {
+  padding: 1px 12px;
+  background: @CYAN;
+  padding-right: 16px;
+  border-radius: 10px;
+  color: @CYAN2;
+  margin: 0px 5px;
+  font-weight: 700;
+  border: 2px solid @CYAN0;
+}
+
+/* CPU */
+
+#cpu {
+  padding: 1px 12px;
+  background: @PINK;
+  border-radius: 10px;
+  color: @PINK2;
+  margin: 0px 5px;
+  font-weight: 700;
+  border: 2px solid @PINK0;
+}
+
+/* Tray */
+
+#tray {
+  padding: 1px 12px;
+  background: @GRAY;
+  border-radius: 10px;
+  color: @FG;
+  margin: 0px 5px 0px 0px;
+  font-size: 20px;
+  font-weight: 700;
+  border: 2px solid @GRAY0;
+}
+
+/* Clock */
+
+#clock.hours,
+#clock.minutes,
+#clock.separator {
+  font-size: 19px;
+  margin: 0px 0px 0px 0px;
+  font-weight: 900;
+  font-family: "SF Pro Rounded";
+  color: @FG;
+  letter-spacing: -1px;
+}
+
+#clock.hours {
+  margin-left: 10px;
+}
+
+#clock.minutes {
+  color: @YELLOW;
+  margin-right: 8px;
+}
+
+#clock.separator {
+  margin: 0 4px;
+}
+
+/* Notifications */
+
+#custom-notifications {
+  padding: 1px 12px;
+  background: @ORANGE;
+  border-radius: 10px;
+  color: @ORANGE2;
+  margin-right: 10px;
+  font-weight: 700;
+  border: 1px solid @ORANGE0;
+}
+
+/* Window */
+
+#window {
+  margin: 0 10px;
+  padding-left: 10px;
+  font-size: 12px;
+}
+
+/* Tooltip */
+
+tooltip {
+  background: rgba(0,0,0,0);
+  border: none;
+}
+
+
+tooltip label {
+  margin-top: 5px;
+  border-radius: 15px;
+  border: 2px solid @BOR;
+  background: @BG;
+  padding: 8px;
+  color: @FG;
+  font-size: 12px;
+}
+
+window#waybar.empty #window {
+  background: transparent;
+  color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
