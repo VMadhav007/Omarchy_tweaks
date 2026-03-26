@@ -1,64 +1,63 @@
 /*----------------------------------------------------------*/
-/*--  HACK: Colors --*/
+/*--  ETERNAL: Colors --*/
 /*----------------------------------------------------------*/
 
 /*  INFO: Normal colors */
-@define-color DARK #111111;
-@define-color DARK1 #161616;
-@define-color DARK2 #1c1c1c;
-@define-color DARK3 #242424;
+@define-color DARK #0d0d14;
+@define-color DARK1 #11111c;
+@define-color DARK2 #161626;
+@define-color DARK3 #1e1e30;
 
-@define-color WHITE #e8f5ee;
+@define-color WHITE #d8d8f6;
 
-/* Green — primary accent (#7ff89d base) */
-@define-color GREEN0 #d0f7dc;
-@define-color GREEN #7ff89d;
-@define-color GREEN1 #3a8a52;
-@define-color GREEN2 #0d2016;
+/* Violet — primary accent */
+@define-color GREEN0 #d8d0ff;
+@define-color GREEN #787fd5;
+@define-color GREEN1 #4c3899;
+@define-color GREEN2 #100d22;
 
-/* Cyan — secondary accent */
-@define-color RED0 #c8f4f4;
-@define-color RED #5de0e0;
-@define-color RED1 #2a7a7a;
-@define-color RED2 #0a1e1e;
+/* Indigo — secondary accent */
+@define-color RED0 #c8d4ff;
+@define-color RED #818cf8;
+@define-color RED1 #3730a3;
+@define-color RED2 #0c0d22;
 
-/* Cyan variant (used for network, memory) */
-@define-color ORANGE0 #c8f0f4;
-@define-color ORANGE #4ecde6;
-@define-color ORANGE1 #257585;
-@define-color ORANGE2 #091820;
+/* Blue — network/memory accent */
+@define-color ORANGE0 #bcd4f8;
+@define-color ORANGE #60a5fa;
+@define-color ORANGE1 #1d4ed8;
+@define-color ORANGE2 #071028;
 
-/* Amber — warning/highlight accent */
-@define-color YELLOW0 #faefd0;
-@define-color YELLOW #f0c060;
-@define-color YELLOW1 #886830;
-@define-color YELLOW2 #1e1608;
+/* Cyan — warning/highlight accent */
+@define-color YELLOW0 #c0f0f8;
+@define-color YELLOW #67e8f9;
+@define-color YELLOW1 #0e7490;
+@define-color YELLOW2 #041820;
 
-/* Teal — deeper cyan variant */
-@define-color PURPLE0 #c0eee8;
-@define-color PURPLE #3ecfbb;
-@define-color PURPLE1 #1e7268;
-@define-color PURPLE2 #081a18;
+/* Lavender — deeper violet variant */
+@define-color PURPLE0 #e0d8ff;
+@define-color PURPLE #c4b5fd;
+@define-color PURPLE1 #5b21b6;
+@define-color PURPLE2 #130d28;
 
-/* Soft cyan-blue */
-@define-color BLUE0 #c8e8f0;
-@define-color BLUE #5ccde0;
-@define-color BLUE1 #2a6e7a;
-@define-color BLUE2 #091618;
+/* Sky blue — soft accent */
+@define-color BLUE0 #bce4ff;
+@define-color BLUE #38bdf8;
+@define-color BLUE1 #0369a1;
+@define-color BLUE2 #021420;
 
-/* Neutral dark green for tray */
-@define-color GRAY0 #7ff89d;
-@define-color GRAY #2a5c3a;
-@define-color GRAY1 #182e20;
-@define-color GRAY2 #0d1810;
+/* Neutral dark purple for tray */
+@define-color GRAY0 #787fd5;
+@define-color GRAY #2e2459;
+@define-color GRAY1 #1a1535;
+@define-color GRAY2 #0e0b1e;
 
 @define-color BG @DARK;
 @define-color FG @WHITE;
 @define-color BOR @GREEN;
 
 * {
-  font-family: "IBM Plex Mono";
-  /* font-style: italic; */
+  font-family: "JetBrains Mono";
   font-weight: 600;
   background: transparent;
   transition: all 200ms ease-out;
@@ -128,7 +127,7 @@
   color: @YELLOW2;
   margin: 0px 5px;
   font-weight: 700;
-  /* border: 1px solid @YELLOW0; */
+  border: 1px solid @YELLOW0;
 }
 
 #battery.charging {
@@ -146,7 +145,7 @@
   border-radius: 10px;
   color: @ORANGE2;
   font-weight: 700;
-  /* border: 2px solid @ORANGE0; */
+  border: 2px solid @ORANGE0;
 }
 
 /* Mpris */
@@ -158,7 +157,7 @@
   color: @RED2;
   margin: 0px 5px 0px 6px;
   font-weight: 700;
-  /* border: 1px solid @RED0; */
+  border: 1px solid @RED0;
 }
 
 /* Audio */
@@ -171,7 +170,7 @@
   color: @BLUE2;
   margin: 0px 5px 0px 0px;
   font-weight: 700;
-  /* border: 1px solid @BLUE0; */
+  border: 1px solid @BLUE0;
 }
 
 #pulseaudio.muted {
@@ -189,7 +188,7 @@
   color: @PURPLE2;
   margin: 0px 5px 0px 0px;
   font-weight: 700;
-  /* border: 1px solid @PURPLE0; */
+  border: 1px solid @PURPLE0;
 }
 
 /* Backlight */
@@ -214,7 +213,7 @@
   color: @PURPLE2;
   margin: 0px 5px;
   font-weight: 700;
-  /* border: 2px solid @PURPLE0; */
+  border: 2px solid @PURPLE0;
 }
 
 /* CPU */
@@ -226,7 +225,7 @@
   color: @GREEN2;
   margin: 0px 5px;
   font-weight: 700;
-  /* border: 2px solid @GREEN0; */
+  border: 2px solid @GREEN0;
 }
 
 /* Tray */
@@ -250,7 +249,7 @@
   font-size: 19px;
   margin: 0px 0px 0px 0px;
   font-weight: 900;
-  font-family: "SF Pro Rounded";
+  font-family: "JetBrains Mono";
   color: @FG;
   letter-spacing: -1px;
 }
@@ -277,7 +276,7 @@
   color: @YELLOW2;
   margin-right: 10px;
   font-weight: 700;
-  /* border: 1px solid @YELLOW0; */
+  border: 1px solid @YELLOW0;
 }
 
 /* Window */

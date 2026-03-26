@@ -29,21 +29,41 @@ window#waybar {
 
 /* workspaces */
 #workspaces {
-  background: @bg;
+  background-image:
+    linear-gradient(135deg, transparent 8px, alpha(@bg, 1.0) 0),
+    linear-gradient(315deg, transparent 8px, alpha(@bg, 1.0) 0),
+    linear-gradient(alpha(@bg, 1.0), alpha(@bg, 1.0)),
+    linear-gradient(alpha(@bg, 1.0), alpha(@bg, 1.0));
+  background-size: 51% 51%;
+  background-position: top left, bottom right, top right, bottom left;
+  background-repeat: no-repeat;
   padding: 2px 6px;
   margin: 3px;
-  border-radius: 6px 12px 6px 12px;
 }
 
 #workspaces button {
   color: @fg;
   padding: 2px 8px;
   margin: 1px;
-  border-radius: 6px 12px 6px 12px;
+
+  background:
+    linear-gradient(135deg, transparent 8px, @bg 0) top left,
+    linear-gradient(315deg, transparent 8px, @bg 0) bottom right,
+    @bg;
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 #workspaces button.active {
-  background: @accent;
+  background-image:
+    linear-gradient(135deg, transparent 8px, alpha(@accent, 1.0) 0),
+    linear-gradient(315deg, transparent 8px, alpha(@accent, 1.0) 0),
+    linear-gradient(alpha(@accent, 1.0), alpha(@accent, 1.0)),
+    linear-gradient(alpha(@accent, 1.0), alpha(@accent, 1.0));
+  background-size: 51% 51%;
+  background-position: top left, bottom right, top right, bottom left;
+  background-repeat: no-repeat;
   color: @bg;
 }
 
@@ -64,21 +84,33 @@ window#waybar {
 
 /* media */
 #mpris {
-  background: @bg;
+  background-image:
+    linear-gradient(135deg, transparent 8px, alpha(@bg, 1.0) 0),
+    linear-gradient(315deg, transparent 8px, alpha(@bg, 1.0) 0),
+    linear-gradient(alpha(@bg, 1.0), alpha(@bg, 1.0)),
+    linear-gradient(alpha(@bg, 1.0), alpha(@bg, 1.0));
+  background-size: 51% 51%;
+  background-position: top left, bottom right, top right, bottom left;
+  background-repeat: no-repeat;
   color: @fg;
   padding: 4px 13px;
   margin: 3px;
-  border-radius: 6px 12px 6px 12px;
 }
 
 
 /* window title */
 #window {
-  background: @bg;
+  background-image:
+    linear-gradient(135deg, transparent 8px, alpha(@bg, 1.0) 0),
+    linear-gradient(315deg, transparent 8px, alpha(@bg, 1.0) 0),
+    linear-gradient(alpha(@bg, 1.0), alpha(@bg, 1.0)),
+    linear-gradient(alpha(@bg, 1.0), alpha(@bg, 1.0));
+  background-size: 51% 51%;
+  background-position: top left, bottom right, top right, bottom left;
+  background-repeat: no-repeat;
   color: @fg;
   padding: 4px 13px;
   margin: 3px;
-  border-radius: 6px 12px 6px 12px;
   font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 13px;
 }
@@ -88,57 +120,90 @@ window#waybar {
 #tray,
 #backlight,
 #battery {
-  background: @bg;
+  background-image:
+    linear-gradient(135deg, transparent 8px, alpha(@bg, 1.0) 0),
+    linear-gradient(315deg, transparent 8px, alpha(@bg, 1.0) 0),
+    linear-gradient(alpha(@bg, 1.0), alpha(@bg, 1.0)),
+    linear-gradient(alpha(@bg, 1.0), alpha(@bg, 1.0));
+  background-size: 51% 51%;
+  background-position: top left, bottom right, top right, bottom left;
+  background-repeat: no-repeat;
   color: @fg;
   padding: 4px 11px;
   margin: 3px;
-  border-radius: 6px 10px 6px 10px;
 }
 
 
 /* performance */
 #cpu,
 #memory {
-  background: @accent;
+  background-image:
+    linear-gradient(135deg, transparent 8px, alpha(@accent, 1.0) 0),
+    linear-gradient(315deg, transparent 8px, alpha(@accent, 1.0) 0),
+    linear-gradient(alpha(@accent, 1.0), alpha(@accent, 1.0)),
+    linear-gradient(alpha(@accent, 1.0), alpha(@accent, 1.0));
+  background-size: 51% 51%;
+  background-position: top left, bottom right, top right, bottom left;
+  background-repeat: no-repeat;
   color: @bg;
   padding: 4px 11px;
   margin: 3px;
-  border-radius: 6px 10px 6px 10px;
 }
 
 
-/* grouped modules */
+/* force modules flush together */
 #bluetooth,
 #pulseaudio,
 #network {
-  background: @bg;
   color: @fg;
   padding: 4px 11px;
   margin: 3px 0;
+  background: @bg;
 }
 
 #bluetooth {
-  border-radius: 6px 0 0 10px;
   margin-left: 3px;
+  padding-right: 8px;
+  background:
+    linear-gradient(135deg, transparent 8px, @bg 0) top left,
+    linear-gradient(225deg, transparent 8px, @bg 0) bottom left,
+    @bg;
+  background-size: 50% 51%, 50% 51%, 100% 100%;
+  background-repeat: no-repeat;
 }
 
 #pulseaudio {
-  border-radius: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  background: @bg;
 }
 
 #network {
-  border-radius: 0 10px 6px 0;
   margin-right: 3px;
+  padding-left: 8px;
+  background:
+    linear-gradient(315deg, transparent 8px, @bg 0) top right,
+    linear-gradient(45deg, transparent 8px, @bg 0) bottom right,
+    @bg;
+  background-size: 50% 51%, 50% 51%, 100% 100%;
+  background-repeat: no-repeat;
 }
 
 
 /* screen recording */
 #custom-screenrecording-indicator {
-  background: @bg;
+  background-image:
+    linear-gradient(135deg, transparent 8px, alpha(@bg, 1.0) 0),
+    linear-gradient(315deg, transparent 8px, alpha(@bg, 1.0) 0),
+    linear-gradient(alpha(@bg, 1.0), alpha(@bg, 1.0)),
+    linear-gradient(alpha(@bg, 1.0), alpha(@bg, 1.0));
+  background-size: 51% 51%;
+  background-position: top left, bottom right, top right, bottom left;
+  background-repeat: no-repeat;
   padding: 4px 9px;
   margin: 3px;
-  border-radius: 6px 10px 6px 10px;
 }
+
 
 
 /* remove empty window module */

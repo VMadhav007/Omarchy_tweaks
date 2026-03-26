@@ -1,0 +1,199 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "modules-left": [
+    "custom/notifications",
+    "clock#hours",
+    "clock#separator",
+    "clock#minutes",
+    "hyprland/window",
+    "mpris"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "tray",
+    "backlight",
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "memory",
+    "battery",
+    "cpu"
+  ],
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "tooltip-format": "{percent}%",
+    "format-icons": [
+      "🌑",
+      "🌘",
+      "🌗",
+      "🌖",
+      "🌕"
+    ]
+  },
+  "custom/notifications": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/notifications.sh",
+    "on-click": "swaync-client -t -sw",
+    "interval": 5
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "active": "󰫢"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "dynamic-len": 24,
+    "max-length": 24,
+    "rewrite": {
+      " - ": "",
+      "(.*) - Chromium": "  $1",
+      "(.*) - chrome": "  $1",
+      "(.*) - Obsidian": "  $1",
+      "(.*)nvim(.*)": "  $1",
+      "(.*) - code": "󰨞  $1",
+      "^btop(.*)": "󰧨  BTOP",
+      "^cmatrix(.*)": "󰘨  MATRIX",
+      "(.*) - Spotify": "  $1",
+      "(.*) - com.mitchellh.ghostty": "󰊠  $1",
+      "(.*) - Alacritty": "  $1",
+      "(.*) - fish": "  [$1]",
+      "(.*) - BeeperTexts": "󰻞  $1",
+      "(.*) - Discord": "  $1",
+      "(.*) - org.gnome.Nautilus": "󰣆  $1",
+      "(.*) - Steam": "  $1",
+      "(.*)imv(.*)": "  $1",
+      "(.*) - com.obsproject.Studio": "  $1"
+  }
+},
+  "clock#hours": {
+    "format": "{:%H} ",
+    "interval": 1,
+    "tooltip": false
+  },
+  "clock#separator": {
+    "format": ":",
+    "tooltip": false
+  },
+  "clock#minutes": {
+    "format": "{:%M}",
+    "interval": 1,
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+  "network": {
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "interval": 3,
+    "on-click": "omarchy-launch-wifi"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "on-click": "omarchy-launch-or-focus-tui wiremix",
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-connected": "󰋋",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "omarchy-launch-bluetooth"
+  },
+  "cpu": {
+    "interval": 2,
+    "format": "{usage}% 󰍛",
+    "on-click": "omarchy-launch-or-focus-tui btop"
+  },
+  "memory": {
+    "interval": 2,
+    "format": "{percentage}% ",
+    "on-click": "omarchy-launch-or-focus-tui btop"
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% {icon}",
+    "format-icons": {
+      "charging": [
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
+    },
+    "tooltip-format": "{capacity}% {timeTo}",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+  "tray": {
+    "icon-size": 13,
+    "spacing": 10
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
+    "dynamic-len": 20,
+    "max-length": 24,
+    "interval": 1,
+    "player-icons": {
+      "default": "⏸",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "▶"
+    }
+  }
+}
