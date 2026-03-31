@@ -1,16 +1,25 @@
-/* @import url("colors/colors.css"); */
-
-@define-color accent #ff2222;
-@define-color bg #181a1f;
-@define-color fg #eceff2;
-
+/* GLOBAL FONT */
 * {
   border: none;
   box-shadow: none;
   min-height: 0;
   padding: 2px 3px;
+
+  font-family: "JetBrains Mono", monospace;
+  /* font-family: "Kapiler", "JetBrains Mono", monospace; */
+  /* font-family: "Orbitron", monospace;  */
+  /* font-family: "Orbitron"; */
+  font-size: 12;
 }
 
+
+/* COLORS */
+@define-color accent #ff2222;
+@define-color bg #181a1f;
+@define-color fg #eceff2;
+
+
+/* WAYBAR */
 window#waybar {
   background: transparent;
 }
@@ -18,17 +27,23 @@ window#waybar {
 
 /* launcher */
 #custom-omarchy {
-  background: @accent;
+  background-image:
+    linear-gradient(135deg, transparent 8px, alpha(@accent, 1.0) 0),
+    linear-gradient(315deg, transparent 8px, alpha(@accent, 1.0) 0),
+    linear-gradient(alpha(@accent, 1.0), alpha(@accent, 1.0)),
+    linear-gradient(alpha(@accent, 1.0), alpha(@accent, 1.0));
+  background-size: 51% 51%;
+  background-position: top left, bottom right, top right, bottom left;
+  background-repeat: no-repeat;
   color: @bg;
   font-size: 19px;
   padding: 4px 13px;
-  border-radius: 6px 14px 6px 14px;
   margin: 3px;
 }
 
 
-/* workspaces */
 #workspaces {
+  font-family: "Orbitron";
   background-image:
     linear-gradient(135deg, transparent 8px, alpha(@bg, 1.0) 0),
     linear-gradient(315deg, transparent 8px, alpha(@bg, 1.0) 0),
@@ -39,37 +54,78 @@ window#waybar {
   background-repeat: no-repeat;
   padding: 2px 6px;
   margin: 3px;
+  min-height: 24px;
+  box-shadow: 0 0 3px 2px @shadow;
 }
 
 #workspaces button {
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  background-image:
+    linear-gradient(135deg, transparent 8px, alpha(@fg, 0.12) 0),
+    linear-gradient(315deg, transparent 8px, alpha(@fg, 0.12) 0),
+    linear-gradient(alpha(@fg, 0.12), alpha(@fg, 0.12)),
+    linear-gradient(alpha(@fg, 0.12), alpha(@fg, 0.12));
+  background-size: 50% 50%;
+  background-position: top left, bottom right, top right, bottom left;
+  background-repeat: no-repeat;
   color: @fg;
   padding: 2px 8px;
   margin: 1px;
+  transition: color 0.24s ease-in-out, background-color 0.24s ease-in-out, min-width 0.24s ease-in-out;
+  font-size: 4px;
+}
 
-  background:
-    linear-gradient(135deg, transparent 8px, @bg 0) top left,
-    linear-gradient(315deg, transparent 8px, @bg 0) bottom right,
-    @bg;
-
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+#workspaces button label {
+  color: @dim;
+  font-size: 11px;
 }
 
 #workspaces button.active {
+  background-color: transparent;
   background-image:
-    linear-gradient(135deg, transparent 8px, alpha(@accent, 1.0) 0),
-    linear-gradient(315deg, transparent 8px, alpha(@accent, 1.0) 0),
-    linear-gradient(alpha(@accent, 1.0), alpha(@accent, 1.0)),
-    linear-gradient(alpha(@accent, 1.0), alpha(@accent, 1.0));
-  background-size: 51% 51%;
+    linear-gradient(135deg, transparent 8px, red 0),
+    linear-gradient(315deg, transparent 8px, red 0),
+    linear-gradient(red, red),
+    linear-gradient(red, red);
+  background-size: 50% 50%;
   background-position: top left, bottom right, top right, bottom left;
   background-repeat: no-repeat;
   color: @bg;
+  min-width: 24px;
 }
 
+#workspaces button.active label {
+  color: @bg;
+}
+
+#workspaces button:hover {
+  color: @bright;
+  min-width: 38px;
+}
+
+#workspaces:hover button.active {
+  min-width: 24px;
+}
+
+#workspaces button.active:hover {
+  min-width: 38px;
+}
+
+#workspaces button.empty {
+  opacity: 0.55;
+  border: none;
+  color: @dim;
+}
+
+#workspaces button.empty label {
+  color: @dim;
+}
 
 /* clock */
 #clock {
+  font-family: "Orbitron";
   background-image: url("assets/clock-bg.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -111,7 +167,6 @@ window#waybar {
   color: @fg;
   padding: 4px 13px;
   margin: 3px;
-  font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 13px;
 }
 
@@ -203,7 +258,6 @@ window#waybar {
   padding: 4px 9px;
   margin: 3px;
 }
-
 
 
 /* remove empty window module */
