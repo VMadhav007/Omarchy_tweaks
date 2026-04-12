@@ -15,3 +15,5 @@ nord
 
 
 Thanks @https://github.com/Sadik-Sami/waybar-switcher repo for waybar switching 
+Folder structure
+<img width="230" height="429" alt="image" src="https://github.com/user-attachments/assets/78a87584-3b29-4369-889d-a4263e2799c8" />
