@@ -12,3 +12,6 @@ pink theme
 ![alt text](image-5.png)
 nord
 ![alt text](image-7.png)
+
+
+Thanks @https://github.com/Sadik-Sami/waybar-switcher repo for waybar switching 
