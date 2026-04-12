@@ -10,5 +10,5 @@ hinterlands
 ![alt text](image-4.png)
 pink theme
 ![alt text](image-5.png)
-vertical-still needs fixes
-![alt text](image-6.png)
+nord
+![alt text](image-7.png)
